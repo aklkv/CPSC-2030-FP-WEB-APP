@@ -1,0 +1,27 @@
+<div class="row" id="content">
+  <div class="large-4 large-centered columns">
+    <div class="login-box">
+      <div class="row">
+        <div class="large-12 columns">
+          <form {{action "authenticate" on="submit"}}>
+            <div class="row">
+              <div class="large-12 columns">
+                {{input type="text" value=email placeholder="Email"}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="large-12 columns">
+                {{input type="password" value=password placeholder="Password"}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="large-12 large-centered columns">
+                <button class="button expanded" type="submit">Log In</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="callout large primary">
+  <div class="row column text-center">
+    <h1>Our Blog</h1>
+  </div>
+</div>
+
+<div class="row" id="content">
+  <div class="medium-8 columns">
+    {{log model.author}}
+    {{blog-posts articles=model.author.articles }}
+  </div>
+
+  {{!-- <div class="medium-3 columns" data-sticky-container>
+    <div class="sticky" data-sticky data-anchor="content">
+
+      {{categories-widget categories=model.categories}}
+
+      {{authors-widget authors=model.authors}}
+
+      <button type="button" name="button" class="button expanded" {{action "createArticle"}}>Create Article</button>
+
+    </div>
+  </div> --}}
+</div>

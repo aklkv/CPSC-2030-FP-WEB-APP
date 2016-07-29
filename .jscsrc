@@ -1,0 +1,8 @@
+{
+  "preset": "ember-suave",
+  "requireCamelCaseOrUpperCaseIdentifiers": false,
+  "disallowTrailingWhitespace": false,
+  "requireArrayDestructuring": false,
+  "disallowConstOutsideModuleScope": false,
+  "disallowDirectPropertyAccess": false
+}

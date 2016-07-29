@@ -1,0 +1,37 @@
+<form>
+  <div class="row">
+    <div class="large-12 columns">
+      {{input type="text" value=user.name placeholder="Full Name" autocomplete=false}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      {{input type="email" value=user.email placeholder="Email" autocomplete=false}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      {{#x-select value=user.department}}
+        <option>Select departments</option>
+        {{#x-option value="HR"}}HR{{/x-option}}
+        {{#x-option value="Sales"}}Sales{{/x-option}}
+        {{#x-option value="Helpdesk"}}Helpdesk{{/x-option}}
+      {{/x-select}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      {{input type="password" value=user.password placeholder="Password" autocomplete=false}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      {{input type="password" value=user.confirmPassword placeholder="Confirm Password" autocomplete=false}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 large-centered columns">
+      <button class="button expanded" {{action "submit"}}>Sign Up</button>
+    </div>
+  </div>
+</form>

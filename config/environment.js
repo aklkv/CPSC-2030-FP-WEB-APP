@@ -1,9 +1,10 @@
 /* jshint node: true */
 
 module.exports = function(environment) {
-  var ENV = {
+  let ENV = {
     modulePrefix: 'cpsc-2030-fp-web-app',
-    environment: environment,
+    podModulePrefix: 'CPSC-2030-FP-WEB-APP/pods',
+    environment,
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -16,6 +17,9 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    moment: {
+      allowEmpty: true
     }
   };
 
@@ -25,6 +29,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.apiURL = 'http://localhost:3000';
   }
 
   if (environment === 'test') {
@@ -39,9 +44,13 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
-  if (environment === 'production') {
+  // if (environment === 'production') {
+  //
+  // }
 
-  }
+  ENV['ember-simple-auth'] = {
+    authenticationRoute: 'login'
+  };
 
   return ENV;
 };
