@@ -1,0 +1,21 @@
+{{#each articles as |article|}}
+  <div class="blog-post">
+
+    <h3>{{article.title}}</h3>
+
+    Author: {{#link-to 'blog.authors' article.author.id}}{{article.author.name}}{{/link-to}} Category: {{#link-to 'blog.categories' article.category.id}}{{article.category.name}}{{/link-to}} Date: {{moment-format article.date 'L'}}
+
+    <hr>
+
+    {{{article.body}}}
+
+    {{#if session.isAuthenticated}}
+      <div class="callout">
+        {{#link-to 'blog.edit' article.id class="success small button"}}Edit{{/link-to}}
+        <button type="button" class="alert small button" {{action "delete" article}}>Delete</button>
+        <span></span>
+      </div>
+    {{/if}}
+
+  </div>
+{{/each}}

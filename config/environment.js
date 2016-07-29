@@ -3,7 +3,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'cpsc-2030-fp-web-app',
-    podModulePrefix: 'CPSC-2030-FP-WEB-APP/pods',
+    podModulePrefix: 'cpsc-2030-fp-web-app/pods',
     environment,
     baseURL: '/',
     locationType: 'auto',
@@ -26,9 +26,9 @@ module.exports = function(environment) {
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.apiURL = 'http://localhost:3000';
   }
 
@@ -49,7 +49,9 @@ module.exports = function(environment) {
   // }
 
   ENV['ember-simple-auth'] = {
-    authenticationRoute: 'login'
+    authenticationRoute: 'login',
+    routeAfterAuthentication: 'blog',
+    routeIfAlreadyAuthenticated: 'blog'
   };
 
   return ENV;

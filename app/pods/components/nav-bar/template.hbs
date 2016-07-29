@@ -1,0 +1,22 @@
+<div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+  <button class="menu-icon" type="button" data-toggle></button>
+  <div class="title-bar-title">Menu</div>
+</div>
+
+<div class="top-bar" id="main-menu">
+  <div class="top-bar-left">
+    <ul class="menu">
+      <li>{{#link-to 'blog'}}Awesome Corporate Blog{{/link-to}}</li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      {{#if session.isAuthenticated}}
+        <li><a {{action 'invalidateSession'}}>Logout</a></li>
+      {{else}}
+        <li>{{#link-to 'login'}}Login{{/link-to}}</li>
+        <li>{{#link-to 'sign-up'}}Sign Up{{/link-to}}</li>
+      {{/if}}
+    </ul>
+  </div>
+</div>

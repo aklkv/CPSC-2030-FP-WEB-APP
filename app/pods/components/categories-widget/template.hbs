@@ -1,0 +1,15 @@
+<h4>Categories</h4>
+{{#if categories}}
+  <ul>
+    {{#each categories as |category|}}
+      <li>{{#link-to 'blog.categories' category.id}}{{category.name}}{{/link-to}}</li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p class="saturn">No Categories Yet</p>
+  {{#if session.isAuthenticated}}
+    <hr>
+    <p class="saturn">Create one for your department</p>
+    <button class="button expanded" {{action 'create'}}>Create</button>
+  {{/if}}
+{{/if}}

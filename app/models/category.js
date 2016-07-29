@@ -4,5 +4,6 @@ import { hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
   name: attr('string'),
-  articles: hasMany('article')
+  articles: hasMany('article'),
+  authors: hasMany('user')
 });

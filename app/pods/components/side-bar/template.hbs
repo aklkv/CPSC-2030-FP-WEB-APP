@@ -1,0 +1,9 @@
+
+{{#if session.isAuthenticated}}
+  {{profile-widget}}
+  {{#link-to 'blog.new' class="button expanded"}}New Article{{/link-to}}
+{{/if}}
+
+{{categories-widget categories=categories }}
+
+{{authors-widget authors=authors}}

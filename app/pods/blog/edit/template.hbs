@@ -1,0 +1,28 @@
+<div class="callout large primary">
+  <div class="row column text-center">
+    <h1>Edit Article</h1>
+  </div>
+</div>
+
+<div class="row" id="content">
+  <div class="large-12 columns">
+    <form {{action "update" on="submit"}}>
+      <div class="row">
+        <div class="large-12 columns">
+          {{input type="text" value=model.title placeholder="Title"}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-12 columns">
+          {{simditor-editor value=model.body update=(action (mut model.body)) editor=(mut editor) }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-12 large-centered columns">
+          <hr>
+          <button class="button expanded" type="submit">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

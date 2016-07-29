@@ -1,0 +1,16 @@
+<div class="callout large primary">
+  <div class="row column text-center">
+    <h1>Articles</h1>
+    <h2 class="subheader">in {{model.category.name}}</h2>
+  </div>
+</div>
+
+<div class="row" id="content">
+  <div class="medium-8 columns">
+    {{blog-posts articles=model.category.articles }}
+  </div>
+
+  <div class="medium-3 columns">
+    {{side-bar authors=model.authors categories=model.categories}}
+  </div>
+</div>
