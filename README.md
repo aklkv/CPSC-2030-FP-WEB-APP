@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/aklkv/CPSC-2030-FP-WEB-APP.svg?branch=master)](https://travis-ci.org/aklkv/CPSC-2030-FP-WEB-APP)
+
+[Live App](https://cpsc-2030.aklkv.com)
+
 # Cpsc-2030-fp-web-app
 
 This README outlines the details of collaborating on this Ember application.
@@ -50,4 +54,3 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
