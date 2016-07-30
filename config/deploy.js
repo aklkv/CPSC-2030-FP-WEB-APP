@@ -1,8 +1,10 @@
 /* jshint node: true */
-
+// jscs:disable
 module.exports = function(deployTarget) {
   var ENV = {
-    build: {},
+    build: {
+      environment: 'production'
+    },
     pipeline: {
       // This setting runs the ember-cli-deploy activation hooks on every deploy
       // which is necessary in order to run ember-cli-deploy-cloudfront.
@@ -14,7 +16,8 @@ module.exports = function(deployTarget) {
     s3: {
       accessKeyId: process.env.AWS_KEY,
       secretAccessKey: process.env.AWS_SECRET,
-      filePattern: "*"
+      filePattern: '*',
+      cacheControl: 'max-age=0, no-cache, public'
     },
     cloudfront: {
       accessKeyId: process.env.AWS_KEY,

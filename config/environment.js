@@ -1,10 +1,11 @@
 /* jshint node: true */
-
+// jscs:disable
 module.exports = function(environment) {
+  var deployTarget = process.env.DEPLOY_TARGET;
   let ENV = {
     modulePrefix: 'cpsc-2030-fp-web-app',
     podModulePrefix: 'cpsc-2030-fp-web-app/pods',
-    environment,
+    environment: deployTarget,
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -44,8 +45,9 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
-  if (environment === 'production') {
+  if (deployTarget === 'production') {
     ENV.apiURL = 'https://api.aklkv.com';
+    ENV.buildEnv = 'production';
   }
 
   ENV['ember-simple-auth'] = {
