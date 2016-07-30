@@ -9,7 +9,7 @@
 
     {{{article.body}}}
 
-    {{#if session.isAuthenticated}}
+    {{#if (and session.isAuthenticated (eq article.category.name user.account.department))}}
       <div class="callout">
         {{#link-to 'blog.edit' article.id class="success small button"}}Edit{{/link-to}}
         <button type="button" class="alert small button" {{action "delete" article}}>Delete</button>

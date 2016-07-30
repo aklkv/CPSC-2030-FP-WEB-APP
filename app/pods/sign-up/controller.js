@@ -7,18 +7,19 @@ export default Ember.Controller.extend({
     signUp(user) {
 
       let newUser = user;
-      newUser.save().catch((err) => {
+      newUser.save().then(()=> {
+        // let data = {
+        //   email: newUser.get('email'),
+        //   password: newUser.get('password')
+        // };
+        // this.get('session').authenticate('authenticator:application', data)
+        // .catch((err) => {
+        //   this.notifications.error(err.message);
+        // });
+        this.transitionToRoute('login');
+        this.notifications.success('Hey Hey! Welcome, Please go ahead and login now!');
+      }).catch((err) => {
         this.notifications.error(err.message);
-      })
-      .then(()=> {
-        let data = {
-          email: newUser.get('email'),
-          password: newUser.get('password')
-        };
-        this.get('session').authenticate('authenticator:application', data)
-        .catch((err) => {
-          this.notifications.error(err.message);
-        });
       });
     }
   }

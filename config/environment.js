@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'cpsc-2030-fp-web-app',
     podModulePrefix: 'cpsc-2030-fp-web-app/pods',
     environment,
-    baseURL: '/',
+    rootURL: '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -29,7 +29,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.apiURL = 'http://localhost';
+    ENV.apiURL = 'https://api.aklkv.com';
   }
 
   if (environment === 'test') {
@@ -44,9 +44,9 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
-  // if (environment === 'production') {
-  //
-  // }
+  if (environment === 'production') {
+    ENV.apiURL = 'https://api.aklkv.com';
+  }
 
   ENV['ember-simple-auth'] = {
     authenticationRoute: 'login',

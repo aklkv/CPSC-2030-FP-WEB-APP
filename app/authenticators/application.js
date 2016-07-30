@@ -20,8 +20,9 @@ export default Base.extend({
       if (res.status === 200) {
         return res.data;
       }
+      throw new Error(res.message);
     }).catch((res) => {
-      return new Error(res.message);
+      throw new Error(res.message);
     });
 
   },
