@@ -8,5 +8,8 @@
     "font-awesome": "~4.5.0",
     "blueimp-md5": "2.1.0",
     "simditor": "^2.3.6"
+  },
+  "resolutions": {
+    "jquery": "~2.2.0"
   }
 }
