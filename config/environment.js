@@ -1,7 +1,8 @@
-/* jshint node: true */
-// jscs:disable
+/* eslint-env node */
+'use strict';
+
 module.exports = function(environment) {
-  var deployTarget = process.env.DEPLOY_TARGET;
+  let deployTarget = process.env.DEPLOY_TARGET;
   let ENV = {
     modulePrefix: 'cpsc-2030-fp-web-app',
     podModulePrefix: 'cpsc-2030-fp-web-app/pods',
@@ -30,7 +31,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.apiURL = 'https://api.aklkv.com';
+    ENV.apiURL = 'http://localhost';
   }
 
   if (environment === 'test') {
