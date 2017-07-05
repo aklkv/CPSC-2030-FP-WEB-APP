@@ -4,6 +4,10 @@
   {{#link-to 'blog.new' class="button expanded"}}New Article{{/link-to}}
 {{/if}}
 
-{{categories-widget categories=categories triggerCreateCategory=(action 'onCreateCategory')}}
+{{#if categories}}
+  {{categories-widget categories=categories triggerCreateCategory=(action 'onCreateCategory')}}
+{{/if}}
 
-{{authors-widget authors=authors}}
+{{#if authors}}
+  {{authors-widget authors=authors}}
+{{/if}}

@@ -2,7 +2,7 @@ import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('categories-widget', 'Integration | Component | categories widget', {
-  integration: true
+  integration: true,
 });
 
 test('it renders', function(assert) {
@@ -11,14 +11,6 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{categories-widget}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#categories-widget}}
-      template block text
-    {{/categories-widget}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim(), `Categories
+  No Categories Yet`);
 });

@@ -7,5 +7,5 @@ export default Model.extend({
   body: attr('string'),
   date: attr('date'),
   author: belongsTo('user'),
-  category: belongsTo()
+  category: belongsTo(),
 });

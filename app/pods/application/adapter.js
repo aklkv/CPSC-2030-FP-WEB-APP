@@ -4,5 +4,5 @@ import config from '../../config/environment';
 
 export default JSONAPIAdapter.extend(DataAdapterMixin, {
   host: config.apiURL,
-  authorizer: 'authorizer:application'
+  authorizer: 'authorizer:application',
 });

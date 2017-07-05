@@ -3,16 +3,21 @@ import { initialize } from 'cpsc-2030-fp-web-app/initializers/inject-notificatio
 import { module, test } from 'qunit';
 import destroyApp from '../../helpers/destroy-app';
 
+const {
+  run,
+  Application,
+} = Ember;
+
 module('Unit | Initializer | inject notifications', {
   beforeEach() {
-    Ember.run(() => {
-      this.application = Ember.Application.create();
+    run(() => {
+      this.application = Application.create();
       this.application.deferReadiness();
     });
   },
   afterEach() {
     destroyApp(this.application);
-  }
+  },
 });
 
 // Replace this with your real tests.
