@@ -1,7 +1,7 @@
-/* jshint node: true */
-// jscs:disable
+/* eslint-env node */
+
 module.exports = function(deployTarget) {
-  var ENV = {
+  let ENV = {
     build: {
       environment: 'production'
     },

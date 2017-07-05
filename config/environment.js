@@ -2,13 +2,24 @@
 'use strict';
 
 module.exports = function(environment) {
-  let deployTarget = process.env.DEPLOY_TARGET;
   let ENV = {
     modulePrefix: 'cpsc-2030-fp-web-app',
     podModulePrefix: 'cpsc-2030-fp-web-app/pods',
-    environment: deployTarget,
+    apiURL: 'https://api.aklkv.com',
+    environment,
     rootURL: '/',
     locationType: 'auto',
+    moment: {
+      allowEmpty: true
+    },
+    'ember-simple-auth': {
+      authenticationRoute: 'login',
+      routeAfterAuthentication: 'blog',
+      routeIfAlreadyAuthenticated: 'blog',
+    },
+    'ember-cli-notifications': {
+      icons: 'bootstrap',
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -20,15 +31,12 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-    moment: {
-      allowEmpty: true
-    }
   };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    ENV.APP.LOG_TRANSITIONS = true;
+    // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.apiURL = 'http://localhost';
@@ -45,17 +53,6 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
   }
-
-  if (deployTarget === 'production') {
-    ENV.apiURL = 'https://api.aklkv.com';
-    ENV.buildEnv = 'production';
-  }
-
-  ENV['ember-simple-auth'] = {
-    authenticationRoute: 'login',
-    routeAfterAuthentication: 'blog',
-    routeIfAlreadyAuthenticated: 'blog'
-  };
 
   return ENV;
 };
