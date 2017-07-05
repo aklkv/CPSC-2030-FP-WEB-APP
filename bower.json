@@ -2,7 +2,6 @@
   "name": "cpsc-2030-fp-web-app",
   "dependencies": {
     "foundation-sites": "^6.4.1",
-    "font-awesome": "~4.7.0",
     "blueimp-md5": "2.7.0",
     "simditor": "^2.3.6"
   },
