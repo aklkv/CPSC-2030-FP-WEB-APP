@@ -1,7 +1,12 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
-  user: Ember.inject.service(),
+const {
+  Controller,
+  inject: { service },
+} = Ember;
+
+export default Controller.extend({
+  user: service(),
   actions: {
     update() {
       if (this.get('model.hasDirtyAttributes')) {
@@ -9,6 +14,6 @@ export default Ember.Controller.extend({
           this.transitionToRoute('blog');
         });
       }
-    }
-  }
+    },
+  },
 });

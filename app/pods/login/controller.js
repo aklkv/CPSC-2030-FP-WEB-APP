@@ -33,7 +33,7 @@ export default Controller.extend(EmberValidations, {
             get(this, 'notifications').error(err.message);
           });
       }).catch((err) => {
-        get(this, 'notifications').error(Ember.get(err, 'password.firstObject') || Ember.get(err, 'email.firstObject'));
+        get(this, 'notifications').error(get(err, 'password.firstObject') || get(err, 'email.firstObject'));
       });
 
     },

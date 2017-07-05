@@ -1,10 +1,15 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+const {
+  Component,
+  get,
+} = Ember;
+
+export default Component.extend({
   actions: {
     submit() {
-      let user = this.get('user');
+      let user = get(this, 'user');
       this.attrs.triggerSignUp(user);
-    }
-  }
+    },
+  },
 });

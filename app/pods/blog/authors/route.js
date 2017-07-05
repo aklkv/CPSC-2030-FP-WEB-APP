@@ -1,11 +1,16 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
+const {
+  Route,
+  RSVP: { hash },
+} = Ember;
+
+export default Route.extend({
   model(params) {
-    return Ember.RSVP.hash({
+    return hash({
       author: this.store.find('user', params.authorId),
       authors: this.store.findAll('user'),
-      categories: this.store.findAll('category')
+      categories: this.store.findAll('category'),
     });
-  }
+  },
 });

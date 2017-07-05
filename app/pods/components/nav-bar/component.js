@@ -1,15 +1,23 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
-  session: Ember.inject.service(),
-  user: Ember.inject.service(),
+const {
+  Component,
+  inject: { service },
+  run: { schedule },
+  get,
+  $,
+} = Ember;
+
+export default Component.extend({
+  session: service(),
+  user: service(),
   actions: {
     invalidateSession() {
-      this.get('session').invalidate();
-    }
+      get(this, 'session').invalidate();
+    },
   },
   init() {
     this._super();
-    Ember.run.schedule('afterRender', this, () => Ember.$(document).foundation());
-  }
+    schedule('afterRender', this, () => $(document).foundation());
+  },
 });

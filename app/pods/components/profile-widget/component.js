@@ -1,5 +1,10 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
-  user: Ember.inject.service()
+const {
+  Component,
+  inject: { service },
+} = Ember;
+
+export default Component.extend({
+  user: service(),
 });
