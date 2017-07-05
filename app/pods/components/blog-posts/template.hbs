@@ -3,7 +3,9 @@
 
     <h3>{{article.title}}</h3>
 
-    Author: {{#link-to 'blog.authors' article.author.id}}{{article.author.name}}{{/link-to}} Category: {{#link-to 'blog.categories' article.category.id}}{{article.category.name}}{{/link-to}} Date: {{moment-format article.date 'L'}}
+    {{!-- Author: {{#link-to 'blog.authors' article.author.id}}{{article.author.name}}{{/link-to}} --}}
+    {{!-- Category: {{#link-to 'blog.categories' article.category.id}}{{article.category.name}}{{/link-to}} --}}
+    Date: {{moment-format article.createdAt 'L'}}
 
     <hr>
 

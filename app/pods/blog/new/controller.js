@@ -11,7 +11,7 @@ export default Controller.extend({
   actions: {
     create() {
       let newArticle = get(this, 'model');
-      newArticle.set('date', new Date());
+      newArticle.set('createdAt', new Date());
       get(this, 'store').query('category', {
         filter: {
           name: get(this, 'user.account.department'),

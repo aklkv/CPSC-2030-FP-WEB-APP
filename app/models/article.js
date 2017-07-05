@@ -5,7 +5,7 @@ import { belongsTo } from 'ember-data/relationships';
 export default Model.extend({
   title: attr('string'),
   body: attr('string'),
-  date: attr('date'),
+  createdAt: attr('date'),
   author: belongsTo('user'),
   category: belongsTo(),
 });
