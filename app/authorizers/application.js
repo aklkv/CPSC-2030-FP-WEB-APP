@@ -1,11 +1,10 @@
-// app/authorizers/application.js
+import { isEmpty } from '@ember/utils';
 import Base from 'ember-simple-auth/authorizers/base';
-import Ember from 'ember';
 
 export default Base.extend({
   authorize(data, block) {
-    if (!Ember.isEmpty(data.token)) {
+    if (!isEmpty(data.token)) {
       block('X-Token',  data.token);
     }
-  }
+  },
 });

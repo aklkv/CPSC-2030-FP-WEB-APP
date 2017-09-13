@@ -1,23 +1,21 @@
+import { resolve } from 'rsvp';
 import { module } from 'qunit';
-import Ember from 'ember';
 import startApp from '../helpers/start-app';
 import destroyApp from '../helpers/destroy-app';
 
-const { RSVP: { Promise } } = Ember;
-
 export default function(name, options = {}) {
   module(name, {
-    beforeEach(...args) {
+    beforeEach() {
       this.application = startApp();
 
       if (options.beforeEach) {
-        return options.beforeEach(this, ...args);
+        return options.beforeEach.apply(this, arguments);
       }
     },
 
-    afterEach(...args) {
-      let afterEach = options.afterEach && options.afterEach(this, ...args);
-      return Promise.resolve(afterEach).then(() => destroyApp(this.application));
-    }
+    afterEach() {
+      let afterEach = options.afterEach && options.afterEach.apply(this, arguments);
+      return resolve(afterEach).then(() => destroyApp(this.application));
+    },
   });
 }

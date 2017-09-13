@@ -1,7 +1,10 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
+import { get } from '@ember/object';
 
-export default Ember.Controller.extend({
-  session: Ember.inject.service(),
+export default Controller.extend({
+  session: service(),
+  notifications: service('notification-messages'),
 
   actions: {
     signUp(user) {
@@ -14,13 +17,13 @@ export default Ember.Controller.extend({
         // };
         // this.get('session').authenticate('authenticator:application', data)
         // .catch((err) => {
-        //   this.notifications.error(err.message);
+        //   get(this, 'notifications').error(err.message);
         // });
         this.transitionToRoute('login');
-        this.notifications.success('Hey Hey! Welcome, Please go ahead and login now!');
+        get(this, 'notifications').success('Hey Hey! Welcome, Please go ahead and login now!');
       }).catch((err) => {
-        this.notifications.error(err.message);
+        get(this, 'notifications').error(err.message);
       });
-    }
-  }
+    },
+  },
 });

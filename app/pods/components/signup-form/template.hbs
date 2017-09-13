@@ -11,11 +11,11 @@
   </div>
   <div class="row">
     <div class="large-12 columns">
-      {{#x-select value=user.department}}
+      {{#x-select value=user.department as |xs|}}
         <option>Select departments</option>
-        {{#x-option value="HR"}}HR{{/x-option}}
-        {{#x-option value="Sales"}}Sales{{/x-option}}
-        {{#x-option value="Helpdesk"}}Helpdesk{{/x-option}}
+        {{#xs.option value="HR"}}HR{{/xs.option}}
+        {{#xs.option value="Sales"}}Sales{{/xs.option}}
+        {{#xs.option value="Helpdesk"}}Helpdesk{{/xs.option}}
       {{/x-select}}
     </div>
   </div>

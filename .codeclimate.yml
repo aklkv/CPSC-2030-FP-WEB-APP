@@ -1,0 +1,23 @@
+---
+engines:
+  csslint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        javascript:
+          mass_threshold: 55
+  fixme:
+    enabled: true
+ratings:
+  paths:
+  - "**.scss"
+  - "**.js"
+exclude_paths:
+- config/
+- dist/
+- node_modules/
+- tests/
+- vendor/
+- tmp/

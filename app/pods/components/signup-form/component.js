@@ -1,10 +1,11 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { get } from '@ember/object';
 
-export default Ember.Component.extend({
+export default Component.extend({
   actions: {
     submit() {
-      let user = this.get('user');
+      let user = get(this, 'user');
       this.attrs.triggerSignUp(user);
-    }
-  }
+    },
+  },
 });

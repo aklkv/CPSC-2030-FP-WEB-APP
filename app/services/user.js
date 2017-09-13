@@ -1,17 +1,17 @@
-import Ember from 'ember';
+import Service, { inject as service } from '@ember/service';
+import { resolve } from 'rsvp';
+import { isEmpty } from '@ember/utils';
+import { alias } from '@ember/object/computed';
 
-const { inject: { service }, RSVP, isEmpty } = Ember;
-
-export default Ember.Service.extend({
+export default Service.extend({
   session: service(),
   store: service(),
-  account: Ember.computed.alias('session.data.authenticated'),
+  account: alias('session.data.authenticated'),
 
   loadCurrentUser() {
-    return new RSVP.Promise((resolve, reject) => {
-      const accountId = this.get('session.data.authenticated._id');
-      if (!isEmpty(accountId)) {
-        return this.get('store').find('user', accountId).then((account) => {
+    return resolve((resolve, reject) => {
+      if (!isEmpty(this.get('session.data.authenticated._id'))) {
+        return this.get('store').find('user', this.get('session.data.authenticated._id')).then((account) => {
           this.set('account', account);
           resolve();
         }, reject);
@@ -19,5 +19,5 @@ export default Ember.Service.extend({
         resolve();
       }
     });
-  }
+  },
 });

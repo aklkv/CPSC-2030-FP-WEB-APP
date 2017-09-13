@@ -1,35 +1,37 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
+import { get } from '@ember/object';
 
-export default Ember.Controller.extend({
-  user: Ember.inject.service(),
+export default Controller.extend({
+  user: service(),
   actions: {
     create() {
-      let newArticle = this.get('model');
-      newArticle.set('date', new Date());
-      this.get('store').query('category', {
+      let newArticle = get(this, 'model');
+      newArticle.set('createdAt', new Date());
+      get(this, 'store').query('category', {
         filter: {
-          name: this.get('user.account.department')
-        }
+          name: get(this, 'user.account.department'),
+        },
       }).then((item) => {
         if (item.get('firstObject')) {
           newArticle.set('category', item.get('firstObject'));
-          newArticle.set('author', this.get('user.account'));
+          newArticle.set('author', get(this, 'user.account'));
           newArticle.save().then(() => {
             this.transitionToRoute('blog');
           });
         } else {
-          let category = this.get('store').createRecord('category', {
-            name: this.get('user.account.department')
+          let category = get(this, 'store').createRecord('category', {
+            name: get(this, 'user.account.department'),
           });
           category.save().then(() => {
             newArticle.set('category', category);
-            newArticle.set('author', this.get('user.account'));
+            newArticle.set('author', get(this, 'user.account'));
             newArticle.save().then(() => {
               this.transitionToRoute('blog');
             });
           });
         }
       });
-    }
-  }
+    },
+  },
 });

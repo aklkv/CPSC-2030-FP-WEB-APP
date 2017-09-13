@@ -8,5 +8,5 @@ export default Model.extend({
   department: attr('string'),
   password: attr('string'),
   articles: hasMany('article'),
-  category: belongsTo()
+  category: belongsTo(),
 });

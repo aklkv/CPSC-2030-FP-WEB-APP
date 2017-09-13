@@ -1,24 +1,36 @@
 ---
+dist: trusty
 language: node_js
 node_js:
-  - "6"
+  - 8
 
 sudo: false
+dist: trusty
+
+addons:
+  chrome: stable
+
+branches:
+  only:
+    - master
+    - /[Vv]?\d+\.\d+\.\d+/
 
 cache:
   directories:
-    - node_modules
+    - $HOME/.npm
 
 before_install:
   - npm config set spin false
-  - npm install -g bower
-  - bower --version
-  - npm install phantomjs-prebuilt
-  - phantomjs --version
 
-install:
-  - npm install
-  - bower install
-
-script:
-  - ember deploy production --verbose
+jobs:
+  include:
+    - stage: Testing
+      script: npm test
+    - stage: Production Deployment
+      script: skip
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script: ./deploy.sh
+        on:
+          tags: true

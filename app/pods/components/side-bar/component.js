@@ -1,11 +1,12 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 
-export default Ember.Component.extend({
-  session: Ember.inject.service(),
-  user: Ember.inject.service(),
+export default Component.extend({
+  session: service(),
+  user: service(),
   actions: {
     onCreateCategory() {
       this.sendAction('createNewCategory');
-    }
-  }
+    },
+  },
 });

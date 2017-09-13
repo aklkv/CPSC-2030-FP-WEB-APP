@@ -1,13 +1,15 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import { isEmpty } from '@ember/utils';
+import { resolve } from 'rsvp';
 import Base from 'ember-simple-auth/authenticators/base';
 
 export default Base.extend({
-  ajax: Ember.inject.service(),
+  ajax: service(),
 
   restore(data) {
 
-    return new Ember.RSVP.Promise((resolve, reject) => {
-      if (!Ember.isEmpty(data._id)) {
+    return resolve((resolve, reject) => {
+      if (!isEmpty(data._id)) {
         resolve(data);
       } else {
         reject();
@@ -33,5 +35,5 @@ export default Base.extend({
     }).catch((res) => {
       return new Error(res.message);
     });
-  }
+  },
 });

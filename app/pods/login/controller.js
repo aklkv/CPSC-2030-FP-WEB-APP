@@ -1,34 +1,37 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
+import { get } from '@ember/object';
 import EmberValidations from 'ember-validations';
 
-export default Ember.Controller.extend(EmberValidations, {
-  session: Ember.inject.service(),
+export default Controller.extend(EmberValidations, {
+  session: service(),
+  notifications: service('notification-messages'),
 
   validations: {
     'email': {
       presence: {
-        message: 'Email can not be blank'
-      }
+        message: 'Email can not be blank',
+      },
     },
     'password': {
       presence: {
-        message: 'Password can not be blank'
-      }
-    }
+        message: 'Password can not be blank',
+      },
+    },
   },
   actions: {
     authenticate() {
-      this.notifications.clearAll();
+      get(this, 'notifications').clearAll();
       this.validate().then(() => {
         let data = this.getProperties('email', 'password');
-        this.get('session').authenticate('authenticator:application', data)
-        .catch((err) => {
-          this.notifications.error(err.message);
-        });
+        get(this, 'session').authenticate('authenticator:application', data)
+          .catch((err) => {
+            get(this, 'notifications').error(err.message);
+          });
       }).catch((err) => {
-        this.notifications.error(Ember.get(err, 'password.firstObject') || Ember.get(err, 'email.firstObject'));
+        get(this, 'notifications').error(get(err, 'password.firstObject') || get(err, 'email.firstObject'));
       });
 
-    }
-  }
+    },
+  },
 });
