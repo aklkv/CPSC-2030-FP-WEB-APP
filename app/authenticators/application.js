@@ -1,11 +1,7 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import { isEmpty } from '@ember/utils';
+import { resolve } from 'rsvp';
 import Base from 'ember-simple-auth/authenticators/base';
-
-const {
-  inject: { service },
-  isEmpty,
-  RSVP: { resolve },
-} = Ember;
 
 export default Base.extend({
   ajax: service(),

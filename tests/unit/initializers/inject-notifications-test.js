@@ -1,12 +1,8 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
+import Application from '@ember/application';
 import { initialize } from 'cpsc-2030-fp-web-app/initializers/inject-notifications';
 import { module, test } from 'qunit';
 import destroyApp from '../../helpers/destroy-app';
-
-const {
-  run,
-  Application,
-} = Ember;
 
 module('Unit | Initializer | inject notifications', {
   beforeEach() {

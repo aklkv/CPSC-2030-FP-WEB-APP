@@ -1,11 +1,7 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
+import { get } from '@ember/object';
 import EmberValidations from 'ember-validations';
-
-const {
-  Controller,
-  inject: { service },
-  get,
-} = Ember;
 
 export default Controller.extend(EmberValidations, {
   session: service(),

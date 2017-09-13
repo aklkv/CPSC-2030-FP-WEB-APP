@@ -1,12 +1,8 @@
-import Ember from 'ember';
-
-const {
-  Component,
-  inject: { service },
-  run: { schedule },
-  get,
-  $,
-} = Ember;
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
+import { schedule } from '@ember/runloop';
+import { get } from '@ember/object';
+import $ from 'jquery';
 
 export default Component.extend({
   session: service(),

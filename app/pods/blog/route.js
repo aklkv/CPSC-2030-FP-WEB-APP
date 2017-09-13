@@ -1,9 +1,5 @@
-import Ember from 'ember';
-
-const {
-  Route,
-  RSVP: { hash },
-} = Ember;
+import Route from '@ember/routing/route';
+import { hash } from 'rsvp';
 
 export default Route.extend({
   model() {
