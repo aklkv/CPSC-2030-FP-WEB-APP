@@ -10,6 +10,8 @@ module.exports = function(defaults) {
     },
   });
 
+  app.import('node_modules/blueimp-md5/js/md5.js');
+  app.import('node_modules/simditor/lib/simditor.js');
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
